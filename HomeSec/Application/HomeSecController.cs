@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Devices.Gpio;
 
 namespace HomeSec.Application
@@ -11,18 +7,13 @@ namespace HomeSec.Application
     {
         public HomeSecController()
         {
-            try
-            {
-                var gpio = GpioController.GetDefault();
-                var pin = gpio.OpenPin(Configuration.DoorSensorPin);
-                var doorSensor = new RisingEdgeSensor(pin);
-            }
-            catch
-            {
-                
-            }
+            var gpio = GpioController.GetDefault();
+            var pin = gpio.OpenPin(Configuration.DoorSensorPin);
+            var doorSensor = new RisingEdgeSensor(pin, TimeSpan.FromMilliseconds(200));
+            
+            var tbot = new TelegramNotifier(Configuration.TelegramApiToken, Configuration.NotifyChatIds);
 
-            var tbot = new TelegramNotifier(Configuration.TelegramApiToken);
+            var rule = new Rule(doorSensor, tbot);
         }
     }
 }

@@ -98,10 +98,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Application\IActuator.cs" />
     <Compile Include="Application\RisingEdgeSensor.cs" />
     <Compile Include="Application\HomeSecController.cs" />
     <Compile Include="Application\ISensor.cs" />
+    <Compile Include="Application\Rule.cs" />
     <Compile Include="Application\TelegramNotifier.cs" />
+    <Compile Include="Configuration_Template.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

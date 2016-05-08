@@ -5,11 +5,9 @@
         event Detected OnDetected;
         event Undetected OnUndetected;
     }
-    
-    public delegate void Detected(object sender, DetectedArgs args);
-    public delegate void Undetected(object sender, DetectedArgs args);
 
-    public class DetectedArgs
-    {
-    }
+    public delegate void Detected(object sender, SensorArgs args);
+    public delegate void Undetected(object sender, SensorArgs args);
+
+    public class SensorArgs { }
 }
